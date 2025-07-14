@@ -1,6 +1,5 @@
 - name: Sample Ansible Playbook
-  hosts: localhost
-  connection: local
+  hosts: webservers
   tasks:
-    - name: Ping localhost
+    - name: Ping all hosts
       ping:
