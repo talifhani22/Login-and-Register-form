@@ -1,6 +1,6 @@
 ---
 - name: Clear log file contents
-  hosts: all
+  hosts: webservers
   become: yes
   tasks:
     - name: Empty the log file
