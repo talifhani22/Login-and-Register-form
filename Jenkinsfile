@@ -12,7 +12,7 @@ pipeline {
             steps {
                 echo 'Clearing log file contents using Ansible...'
                 sh '''
-                    ansible-playbook -i inventory.yml clear_log.yml
+                    ansible-playbook -i inventory.yml test.yml
                 '''
             }
         }
