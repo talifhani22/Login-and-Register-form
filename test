@@ -1,0 +1,9 @@
+---
+- name: Clear log file contents
+  hosts: all
+  become: yes
+  tasks:
+    - name: Empty the log file
+      copy:
+        content: ""
+        dest: /home/ec2-user/log_file.log
