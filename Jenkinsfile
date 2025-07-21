@@ -12,6 +12,7 @@ pipeline {
             steps {
                 echo 'Clearing log file contents using Ansible...'
                 sh '''
+                    export ANSIBLE_LOG_PATH=./ansible.log
                     ansible-playbook -i inventory.yml test.yml
                 '''
             }
