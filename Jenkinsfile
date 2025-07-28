@@ -1,30 +1,32 @@
 pipeline {
     agent any
 
-    stages {
-        stage('Checkout Code') {
-            steps {
-                git url: 'https://github.com/talifhani22/Login-and-Register-form',branch: 'master'
-            }
-        }
-
-        stage('Run Ansible Playbook') {
-            steps {
-                echo 'Clearing log file contents using Ansible...'
-                sh '''
-                    export ANSIBLE_LOG_PATH=./ansible.log
-                    ansible-playbook -i inventory.yml test.yml
-                '''
-            }
-        }
+    environment {
+        GIT_REPO = 'https://github.com/talifhani22/Login-and-Register-form.git'
+        GIT_CREDENTIALS_ID = 'test_git'
+        LOG_FILE = 'logfile.log'
     }
 
-    post {
-        failure {
-            echo 'Pipeline failed. Please check the logs.'
+    stages {
+        stage('Clone Repo') {
+            steps {
+                git credentialsId: "${GIT_CREDENTIALS_ID}", url: "${GIT_REPO}", branch: 'master'
+            }
         }
-        success {
-            echo 'Log file cleared successfully.'
+
+        stage('Clear logs') {
+            steps {
+                script {
+                    def logPath = "${LOG_FILE}"
+                    if (fileExists(logPath)) {
+                        writeFile file: logPath, text: ''
+                        echo "Cleared contents of ${logPath}"
+                    } else {
+                        echo "File ${logPath} does not exist. Creating it."
+                        writeFile file: logPath, text: ''
+                    }
+                }
+            }
         }
     }
 }
