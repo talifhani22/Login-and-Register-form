@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        GIT_REPO = 'https://github.com/talifhani22/Login-and-Register-form.git'
+        GIT_REPO = 'git@github.com:talifhani22/Login-and-Register-form.git'
         GIT_CREDENTIALS_ID = 'test_git'
         GIT_BRANCH = 'master'
     }
