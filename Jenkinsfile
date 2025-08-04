@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage('Clone Repo') {
             steps {
-                git credentialsId: "${GIT_CREDENTIALS_ID}", url: "${GIT_REPO}", branch: '${GIT_BRANCH}'
+                git credentialsId: "${GIT_CREDENTIALS_ID}", url: "${GIT_REPO}", branch: "${GIT_BRANCH}"
             }
         }
         stage('Clear logs') {
