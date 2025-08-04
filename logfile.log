@@ -1,4 +1,3 @@
-
 2023-03-28 11:46:32,920 INFO  [stdout] (default task-1943) : Hibernate: Select top 1 user_id, empNumber, buttonID from pilot_users where empNumber = ? and buttonID = ?
 2024-03-28 11:46:32,920 INFO  [stdout] (default task-1943) : Hibernate: Select top 1 user_id, empNumber, buttonID from pilot_users where empNumber = ? and buttonID = ?
 2025-03-28 11:46:32,920 INFO  [stdout] (default task-1943) : Hibernate: Select top 1 user_id, empNumber, buttonID from pilot_users where empNumber = ? and buttonID = ?
