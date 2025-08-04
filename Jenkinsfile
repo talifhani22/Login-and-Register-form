@@ -4,7 +4,7 @@ pipeline {
     environment {
         GIT_REPO = 'https://github.com/talifhani22/Login-and-Register-form.git'
         GIT_CREDENTIALS_ID = 'test_git'
-        LOG_FILE = 'logfile.log'
+        LOG_FILE = 'talifhani22/Login-and-Register-form/logfile.log'
     }
 
     stages {
