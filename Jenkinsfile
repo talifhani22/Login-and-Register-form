@@ -13,7 +13,19 @@ pipeline {
                 git credentialsId: "${GIT_CREDENTIALS_ID}", url: "${GIT_REPO}", branch: 'master'
             }
         }
-
-       
+        stage('Clear logs') {
+            steps {
+                script {
+                    def logPath = "${LOG_FILE}"
+                    if (fileExists(logPath)) {
+                        writeFile file: logPath, text: ''
+                        echo "Cleared contents of ${logPath}"
+                    } else {
+                        echo "File ${logPath} does not exist. Creating it."
+                        writeFile file: logPath, text: ''
+                    }
+                }
+            }
+        }   
     }
 }
