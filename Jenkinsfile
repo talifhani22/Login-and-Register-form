@@ -18,17 +18,7 @@ pipeline {
                 sh 'truncate -s 0 logfile.log'
             }
         }
-        stage('Commit and Push') {
-            steps {
-                sh '''
-                    git config user.email "masindi.talifhani22@gmail.com"
-                    git config user.name "talifhani22"
-                    git add logfile.log
-                    git commit -m "Clear logfile.log" || echo "Nothing to commit"
-                    git push origin HEAD:${GIT_BRANCH}
-                '''
-            }
-        }
+       
         
         stage('Write and Read File') {
             steps {
