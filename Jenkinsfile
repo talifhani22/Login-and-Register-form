@@ -15,7 +15,7 @@ pipeline {
         }
         stage('Clear logs') {
             steps {
-                sh 'truncate -s 0 logfile.log'
+                sh 'truncate -s 0 groovy1.txt'
             }
         }
        
@@ -23,10 +23,10 @@ pipeline {
         stage('Write and Read File') {
             steps {
                 script {
-                    writeFile file: 'groovy1.txt', text: 'Working with files the Groovy way is easy.'
+                    writeFile file: 'groovy2.txt', text: 'Working with files the Groovy way is easy.'
                 }
-                sh 'ls -l groovy1.txt'
-                sh 'cat groovy1.txt'
+                sh 'ls -l groovy2.txt'
+                sh 'cat groovy2.txt'
             }
         }
 
