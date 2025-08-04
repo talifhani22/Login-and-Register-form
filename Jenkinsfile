@@ -15,7 +15,8 @@ pipeline {
         }
         stage('Clear logs') {
             steps {
-                sh 'truncate -s 0 groovy1.txt'
+                sh 'truncate -s 0 logfile.log'
+                sh 'rm -f groovy1.txt'
             }
         }
        
