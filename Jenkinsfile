@@ -15,11 +15,19 @@ pipeline {
         }
         stage('Clear logs') {
             steps {
-                script {
-                    writeFile file: 'logfile.log', text: ''
-                }
+                sh 'truncate -s 0 logfile.log'
             }
-        }  
-        
+        }
+        stage('Commit and Push') {
+            steps {
+                sh '''
+                    git config uder.email "jenkins@email.com"
+                    git config user.name "JenkinsBot"
+                    git add logfile.log
+                    git commit -m "Clear logfile.log" || echo "Nothing to commit"
+                    git push origin HEAD:${GIT_BRANCH}
+                '''
+            }
+        }          
     }
 }
