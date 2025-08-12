@@ -15,7 +15,19 @@ pipeline {
         }
         stage('Clear logs') {
             steps {
-                sh 'rm -f jboss.2024-08-*.log'
+                script{
+                    
+                    def inputFile = "jboss.2025-08-05.log"
+                    def tempFile = "temp.txt"
+                    def pattern = "2023"
+
+                    
+                    sh """
+                        grep -v "$pattern" "$inputFile" > "$tempFile"
+                        mv "$tempFile" "$inputFile"
+                    """
+
+                }
             }
         }
 
