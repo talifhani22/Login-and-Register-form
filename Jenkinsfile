@@ -18,17 +18,14 @@ pipeline {
                 script{
                     
                     def inputFile = 'jboss.2025-08-*.log'
+                    def tempFile = 'temp.txt
                     def pattern = '2024'
                 
 
                     
                     sh """
-                        if ls $inputFile 1> /dev/null 2>&1; then
-                           grep -Ev  '$inputFile' '$pattern' > cleaned.log
-                           mv cleaned.log 
-                        else
-                           echo "error"
-                        fi
+                       grep -v  '$pattern' '$inputFile'  > '$tempFile'
+                       mv '$tempFile' '$inputFile'
                     """
 
                 }
