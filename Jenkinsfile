@@ -15,7 +15,7 @@ pipeline {
         }
         stage('Clear logs') {
             steps {
-                sh 'rm jboss.log-2024-08-*'.log
+                sh 'rm jboss.log-2024-08-09'
                 sh 'rm -f groovy1.txt'
             }
         }
