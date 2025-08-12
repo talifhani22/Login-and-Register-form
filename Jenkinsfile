@@ -15,8 +15,7 @@ pipeline {
         }
         stage('Clear logs') {
             steps {
-               sh 'truncate -s 0 jboss.2024-08-09.log'
-                sh 'rm -f jboss.2025-08-*.log'
+                sh 'rm -f jboss.2024-08-*.log'
             }
         }
 
