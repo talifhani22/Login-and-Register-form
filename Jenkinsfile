@@ -15,7 +15,7 @@ pipeline {
         }
         stage('Clear logs') {
             steps {
-                sh 'rm -f Login-and-Register-form/jboss.log.2024-08-09'
+                sh 'rm -f Login-and-Register-form/jboss.2024-08-09.log'
                 sh 'rm -f groovy1.txt'
             }
         }
