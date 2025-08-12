@@ -19,7 +19,7 @@ pipeline {
                     
                     def inputFile = "jboss.2025-08-07.log"
                     def tempFile = "temp.txt"
-                    def pattern = "2024"
+                    def pattern = "^2023|^2024"
                 
 
                     
