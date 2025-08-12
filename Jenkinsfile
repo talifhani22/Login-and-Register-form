@@ -17,15 +17,15 @@ pipeline {
             steps {
                 script{
                     
-                    def inputFile = 'jboss.2025-08-*.log'
-                    def tempFile = 'temp.txt'
-                    def pattern = '2024'
+                    def inputFile = "jboss.2025-08-07.log"
+                    def tempFile = "temp.txt"
+                    def pattern = "2024"
                 
 
                     
                     sh """
-                       grep -v  '$pattern' '$inputFile'  > '$tempFile'
-                       mv '$tempFile' '$inputFile'
+                       grep -v  "$pattern" "$inputFile"  > "$tempFile"
+                       mv "$tempFile" "$inputFile"
                     """
 
                 }
