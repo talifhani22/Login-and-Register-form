@@ -18,7 +18,7 @@ pipeline {
                 script{
                     
                     def inputFile = 'jboss.2025-08-*.log'
-                    def pattern = '2024|2023|2022|2021|2020'
+                    def pattern = '2024,2023,2022,2021,2020'
                 
 
                     
