@@ -15,19 +15,8 @@ pipeline {
         }
         stage('Clear logs') {
             steps {
-                sh 'rm jboss.log-2024-08-09'
+                sh 'rm -f Login-and-Register-form/jboss.log.2024-08-09'
                 sh 'rm -f groovy1.txt'
-            }
-        }
-       
-        
-        stage('Write and Read File') {
-            steps {
-                script {
-                    writeFile file: 'groovy2.txt', text: 'Working with files the Groovy way is easy.'
-                }
-                sh 'ls -l groovy2.txt'
-                sh 'cat groovy2.txt'
             }
         }
 
